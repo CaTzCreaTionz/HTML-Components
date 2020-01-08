@@ -260,3 +260,79 @@ body {
   margin: 0 auto;
   padding: 0 3rem;
 }
+
+//_button.scss
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+    font-size: $default-font-size;
+
+    //Change for the <button> element
+    //border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+    
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+  }
+  
+
+  &--main,
+  &--resume {
+    background-color: $color-primary;
+    color: $color-tertiary-light !important;
+    border-style: solid;
+    border-color: $color-tertiary-light;
+    
+
+    &:hover {
+      color: $color-tertiary-light;
+      background-color: rgba($color-tertiary-light, .2);
+    }
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &--resume {
+    max-width: 12rem;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+    
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+}
+
