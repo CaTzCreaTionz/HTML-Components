@@ -1,0 +1,37 @@
+HTML:
+<div class="about__detail--skills">
+  <h3 class="heading-tertiary">Here are a few technologies I've been working with:</h3>              
+  <ul class="skills__list">
+    <li class="skills__list--item">HTML5</li>
+    <li class="skills__list--item">CSS & Sass</li>
+    <li class="skills__list--item">JavaScript</li>
+    <li class="skills__list--item">Ruby on Rails</li>
+    <li class="skills__list--item">Bootstrap Framework</li>
+    <li class="skills__list--item">RSpec</li>
+    <li class="skills__list--item">GitHub</li>
+    <li class="skills__list--item">Heroku</li>
+  </ul>         
+</div> <!-- about__detail--skills -->
+
+//Sass
+.skills__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &--item {
+    list-style: none;
+    overflow: hidden;
+    font-size: 1.6rem;
+
+    &:not(last-child) {
+      margin-bottom: 1rem;
+    }
+  
+    &:before {
+      content: "▹";
+      color: $color-tertiary-light;
+      font-size: 1.6rem;
+      margin-right: 1rem;
+    }
+  }
+}
