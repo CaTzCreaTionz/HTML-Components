@@ -1,0 +1,261 @@
+HTML:
+<section class="section-header">
+  <header class="header">
+    <div class="header__logo-box">
+      <img src="img/CKlogo.png" alt="Logo" class="header__logo-box-img logo-filter">
+    </div> <!-- end header__logo-box -->   
+    <div class="header__text-box">
+      <h1 class="heading-primary">
+        <span class="heading-primary--main">Catherine Kraus</span>
+        <span class="heading-primary--sub">Web developer</span>
+      </h1>
+        <p class=heading-primary--ter>I am a web developer based in Koblenz Germany focusing on building and designing websites.</p>
+        <a href="img/Catherine_Kraus_Resume.pdf" target="_blank" class="btn btn--resume">Resume</a>   
+    </div>
+  </header>
+</section>
+
+//Sass
+//_variables.scss
+$color-primary: #0a192f; /*rgb(10, 25, 47)*/
+$color-primary-light: #8892b0;
+$color-primary-dark: #172a43;
+$color-primary-darker: #020c1b;
+
+$color-secondary-light: #7ed6df;
+$color-secondary-dark: #22a6b3;
+
+$color-tertiary-light: #a55eea;
+$color-tertiary-dark: #8854d0;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+//FONT
+$default-font-size: 1.6rem;
+
+$box-shadow-dark: 0 1.5rem 4rem rgba($color-black, .15);
+$box-shadow-light: 0 1.5rem 4rem rgba($color-primary-light, .15);
+
+//_animations.scss
+//Animations moveInLeft
+@keyframes moveInLeft {
+  0% {
+      opacity: 0;
+      transform: translateX(-110rem00px);
+  }
+
+  80% {
+      transform: translateX(1rem);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}
+
+@keyframes moveInLeftStraight {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+  
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+//Animations moveInRight
+@keyframes moveInRight {
+  0% {
+      opacity: 0;
+      transform: translateX(10rem);
+  }
+
+  80% {
+      transform: translateX(-1rem);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}
+
+//Animations moveInRight
+@keyframes moveInRightStraight {
+  0% {
+      opacity: 0;
+      transform: translateX(10rem);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}
+
+//Animations moveInBottom
+@keyframes moveInBottom {
+  0% {
+      opacity: 0;
+      transform: translateY(3rem);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+}
+
+//_header.scss
+.header {
+  width: 90%;
+  display: grid;
+  grid-template-columns: .5fr 1fr;
+  align-items: center;
+  margin: 0 auto;
+
+  &__logo-box {
+    animation: moveInLeftStraight 1s ease-out;
+    width: 40rem;
+    justify-self: end;
+    
+    &-img {
+      width: 100%;
+    }
+  }
+
+  &__text-box {
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -1rem;
+
+    //1em = 16 px: 672px = 42em
+    @media only screen and (max-width: 42em) {
+      margin-left: 0;
+    }
+  }
+}
+
+//_typography.scss
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  background-color: $color-primary;
+  color: $color-primary-light;
+}
+
+.heading-primary {
+  backface-visibility: hidden; /*to stop the shake in the animation*/
+  margin-bottom: 3rem;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 1rem;
+
+  &--main {
+    color: $color-white;
+    display: block;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    margin-bottom: .05;
+  }
+  
+  &--sub {
+    display: block;
+    animation: moveInRight 1s ease-out;     
+  }
+
+  &--ter {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 300;
+    letter-spacing: .5rem;
+    animation: moveInBottom 1s ease-out;
+    margin-bottom: 4rem;
+    width: 60%;
+  }
+}
+
+//_button.scss
+.btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+    font-size: $default-font-size;
+
+    //Change for the <button> element
+    //border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+    
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+  }
+  
+
+  &--resume {
+    background-color: $color-primary;
+    color: $color-tertiary-light !important;
+    border-style: solid;
+    border-color: $color-tertiary-light;
+    max-width: 12rem;
+    
+
+    &:hover {
+      color: $color-tertiary-light;
+      background-color: rgba($color-tertiary-light, .2);
+    }
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+   
+}
+
+
