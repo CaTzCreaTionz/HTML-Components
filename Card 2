@@ -1,0 +1,121 @@
+HTML:
+<div class="row">
+  <div class="testimony">
+    <figure class="testimony__shape">
+      <img src="img/testimonies/Panagiota.jpeg" alt="Panagiota Mitsopoulou" class="testimony__img">
+      <!-- <figcaption class="testimony__caption">Panagiota Mitsopoulou</figcaption> -->
+    </figure> <!-- end testimony__shape -->
+
+    <div class="testimony__text">
+      <div class="p-small">
+      I had the pleasure to be Catherine's mentor in the Web Development course of Careerfoundry. Catherine is very smart...
+      </div> <!-- end p -->
+      <div class="p-medium">
+      Panagiota Mitsopoulou &mdash; Mentor and Course Reviewer - CareerFoundry
+      </div>
+    </div> <!-- end testimony__text -->
+  </div> <!-- end testimony -->
+</div> <!-- end row -->
+
+//SASS:
+//_variables.scss
+$color-primary: #0a192f; /*rgb(10, 25, 47)*/
+$color-primary-light: #8892b0;
+$color-primary-dark: #172a43;
+$color-primary-darker: #020c1b;
+
+$color-secondary-light: #7ed6df;
+$color-secondary-dark: #22a6b3;
+
+$color-tertiary-light: #a55eea;
+$color-tertiary-dark: #8854d0;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+//FONT
+$default-font-size: 1.6rem;
+
+$box-shadow-dark: 0 1.5rem 4rem rgba($color-black, .15);
+$box-shadow-light: 0 1.5rem 4rem rgba($color-primary-light, .15);
+
+//_testimonies
+.testimony {
+  width: 85%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: rgba($color-primary-dark, .6);
+  border-radius: 3px;
+  padding: 5rem;
+  padding-left: 4rem;
+  font-size: $default-font-size;
+  transition: transform .3s;
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    margin-right: 4rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+      
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      border-radius: none;
+    }
+  }
+
+  &__img {
+    height: 100%;
+    backface-visibility: hidden;
+    transition: all .5s;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    //opacity: 1;
+  }
+
+  &:hover &__img {
+    //filter: blur(3px) brightness(80%);
+  }
+
+  &:hover {
+    transform: translateY(-1rem) scale(1.03);
+  }
+}
+
+.p-small {
+  font-size: 1.5rem;
+}
+
+.p-medium {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  text-align: right;
+  color: $color-tertiary-light;
+}
