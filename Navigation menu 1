@@ -1,0 +1,103 @@
+HTML
+<!--navbar starts here-->
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark" role="navigation" id="navbar-main">
+      <a class="navbar-brand" href="index.html">
+          <img src="img/CKlogo.png" width="40" height="40" alt="CK logo" class="logo-filter">
+        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar-content">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html" class="nav-accent">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#section-about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#section-projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#section-contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#section-testimonials">Testimonials</a>
+        </li>       
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" href="https://github.com/CaTzCreaTionz"><i class="fab fa-github fa-lg"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/catherine-kraus/"><i class="fab fa-linkedin-in"></i></a>
+        </li>
+      </ul>
+    </div>
+    </nav>
+    
+    CSS:
+    .navbar {
+  //min-height: 7rem;
+  background-color: $color-primary;
+  box-shadow: $box-shadow-dark;
+  font-size: 1.6rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  
+}
+
+.nav-link {
+  margin: 0 1rem;
+  &:link,
+  &:visited {
+    color: $color-primary-light !important;
+  }
+
+  &:hover,
+  &:active {
+  color: $color-tertiary-light !important;
+  text-decoration: none;
+  transition: color 500ms ease;
+  -webkit-transition: 500ms ease;
+  }
+}
+
+
+.nav-item {
+  text-align: right;
+}
+
+.navbar-toggler {
+  font-size: large;
+}
+
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto $color-tertiary-light !important;
+}
+
+_variables.scss
+$color-primary: #0a192f; /*rgb(10, 25, 47)*/
+$color-primary-light: #8892b0;
+$color-primary-dark: #172a43;
+$color-primary-darker: #020c1b;
+
+$color-secondary-light: #7ed6df;
+$color-secondary-dark: #22a6b3;
+
+$color-tertiary-light: #a55eea;
+$color-tertiary-dark: #8854d0;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+    
+    
