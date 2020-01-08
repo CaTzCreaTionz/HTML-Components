@@ -1,0 +1,112 @@
+HTML:
+<footer class="section-footer">
+  <div class="footer">       
+      <div class="footer__logo-box">
+        <picture class="footer__logo">
+          <img src="img/CKlogo.png" width="50" height="50" alt="CK logo" class="logo-filter">
+        </picture> <!-- end footer__logo -->      
+      </div> <!-- end footer__logo-box -->
+
+      <div class="footer__navigation">
+        <p class="footer__copyright">
+        Copyright &copy; - Catherine Kraus 2019
+        </p> <!-- end footer__copyright -->
+        <ul class="footer__list">
+          <li class="footer__item"><a href="impressum.html" class="footer__link">Imprint & Data Privacy</a></li>
+        </ul> <!-- end footer__list -->
+      </div> <!-- end footer__navigation -->
+  </div> <!-- end row -->
+</footer> <!-- end footer -->
+
+//Sass
+//_variables.scss
+$color-primary: #0a192f; /*rgb(10, 25, 47)*/
+$color-primary-light: #8892b0;
+$color-primary-dark: #172a43;
+$color-primary-darker: #020c1b;
+
+$color-secondary-light: #7ed6df;
+$color-secondary-dark: #22a6b3;
+
+$color-tertiary-light: #a55eea;
+$color-tertiary-dark: #8854d0;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+//FONT
+$default-font-size: 1.6rem;
+
+$box-shadow-dark: 0 1.5rem 4rem rgba($color-black, .15);
+$box-shadow-light: 0 1.5rem 4rem rgba($color-primary-light, .15);
+
+//GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;
+
+
+//_footer.scss
+
+.section-footer {
+  width: 100%;
+  font-size: 1.4rem;
+  background-color: $color-primary-darker;
+  color: $color-primary-light;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: .75fr 1fr;
+  align-items: center;
+  margin: 0 auto;
+
+  &__logo-box {
+    justify-self: end;
+    margin-right: 1rem !important;
+  }
+
+  &__navigation {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+
+  &__list {
+    list-style: none;
+    margin-bottom: 0 !important;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-primary-light;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+    }
+
+  &:hover,
+    &:active {
+      color: $color-tertiary-light;
+      transform: scale(1.1);
+    }
+  }
+
+  &__copyright {
+    margin-bottom: 0 !important;
+  }
+}
