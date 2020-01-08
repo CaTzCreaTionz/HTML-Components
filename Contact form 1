@@ -1,0 +1,262 @@
+HTML:
+
+<div class="contact">
+  <div class="contact__form">
+    <form action="send.php" method="post" class="form">
+        <div class="form-header blue accent-1">
+            <h3 class="heading-tertiary u-margin-bottom-small">Leave a message</h3>
+
+          </div>                              
+      <div class="form__group">
+        <input type="text" class="form__input" placeholder="Your name*" name="name" id="name" required>
+        <label for="name" class="form__label">Your name*</label>
+      </div> <!-- end form__group -->
+
+      <div class="form__group">
+        <input type="text" id="email" name="email" class="form__input" placeholder="Your email" required>
+        <label for="email" class="form__label">Your email*</label>
+      </div> <!-- end form__group -->
+
+      <div class="form__group">
+        <textarea id="form-text" name="message" class="form__input" rows="4" placeholder="Your message*" required></textarea>
+        <label for="message" class="form__label">Your message*</label>
+      </div>
+      <div class="text-center">
+        <button class="btn btn--main u-margin-bottom-xsmall">Send message</button>
+      </div>
+    </form> <!-- end form -->
+  </div>
+</div>
+
+//Sass
+//_variables.scss
+$color-primary: #0a192f; /*rgb(10, 25, 47)*/
+$color-primary-light: #8892b0;
+$color-primary-dark: #172a43;
+$color-primary-darker: #020c1b;
+
+$color-secondary-light: #7ed6df;
+$color-secondary-dark: #22a6b3;
+
+$color-tertiary-light: #a55eea;
+$color-tertiary-dark: #8854d0;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+//FONT
+$default-font-size: 1.6rem;
+
+$box-shadow-dark: 0 1.5rem 4rem rgba($color-black, .15);
+$box-shadow-light: 0 1.5rem 4rem rgba($color-primary-light, .15);
+
+//_typography.scss
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  background-color: $color-primary;
+  color: $color-primary-light;
+}
+
+.heading-primary {
+  backface-visibility: hidden; /*to stop the shake in the animation*/
+  margin-bottom: 3rem;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 1rem;
+
+  &--main {
+    color: $color-white;
+    display: block;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    margin-bottom: .05;
+  }
+  
+  &--sub {
+    display: block;
+    animation: moveInRight 1s ease-out;     
+  }
+
+  &--ter {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 300;
+    letter-spacing: .5rem;
+    animation: moveInBottom 1s ease-out;
+    margin-bottom: 4rem;
+    width: 60%;
+  }
+}
+
+.heading-secondary {
+  color: $color-white;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  overflow: hidden;
+  
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 25rem;
+    background-color: $color-primary-light;
+    position: relative;
+    top: -5px;
+    margin-left: 20px;
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: $color-white;
+  color: $color-tertiary-light;
+  margin-bottom: 2rem;
+  
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  &:not(last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+.p-small {
+  font-size: 1.5rem;
+}
+
+.p-medium {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  text-align: right;
+  color: $color-tertiary-light;
+}
+
+//_utilities.scss
+.u-center-text {text-align: center !important; }
+
+.u-margin-bottom-xsmall {margin-bottom: .8rem !important; }
+
+.u-margin-bottom-small {margin-bottom: 3rem !important; }
+
+.u-margin-bottom-medium {margin-bottom: 5rem !important; }
+
+.u-margin-bottom-big {margin-bottom: 8rem !important; }
+
+.u-margin-bottom-huge {margin-bottom: 10rem !important; }
+
+.u-margin-top-small {margin-top: 1.5rem !important; }
+
+.u-margin-left {margin-left: 10rem !important; }
+
+.u-margin-left-small {margin-left: 4rem !important; }
+
+
+//_form.scss
+.contact {
+  width: 100%;
+
+  &__form {
+    width: 50%;
+    margin: 0 auto;
+    color: $color-primary-light;
+    background-color: rgba($color-primary-dark, .6);
+    padding: 3rem;
+    border-radius: 2px;
+    
+    //1em = 16 px: 1024x = 64em
+    @media only screen and (max-width: 64em) {
+      width: 80%;
+    }
+  }
+
+  &__logo {
+    font-size: 2rem;
+    margin-right: 2rem;
+  }
+
+  &__link {
+    
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 1.6rem;
+      font-weight: 300;
+      //padding: 1rem 2rem;
+      color: $color-primary-light !important;
+      text-decoration: none;
+
+    }
+    &:hover,
+    &:active {
+    color: $color-tertiary-light !important;
+    text-decoration: none;
+    transition: color 500ms ease;
+    -webkit-transition: 500ms ease;
+    }
+  }
+}
+
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    color: inherit;
+    background-color: rgba($color-primary-dark, 1);
+    border: 3px solid transparent;
+    width: 100%;
+    display: block;
+    transition: all .3s;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba($color-black, .1);
+        border: 3px solid $color-tertiary-light;
+      }
+
+      &::-webkit-input-placeholder {
+          color: $color-primary-light;
+      }
+  }
+
+  &__label {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-left: 2rem;
+      margin-top: .7rem;
+      display: block;
+      transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4rem);
+  }
+
+}
+
+.paragraph-contact {
+  width: 50%;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
